@@ -9,15 +9,21 @@ import ImageModal from '../ImageModal/ImageModal';
 import { Toaster } from 'react-hot-toast';
 import './App.css';
 
+interface Image {
+  query: string;
+  page: number;
+  per_page: number;
+}
+
 export default function App() {
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [topic, setTopic] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
+  const [images, setImages] = useState<Image[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [topic, setTopic] = useState<string>('');
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(0);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   const handleSubmit = async (newTopic) => {
     setTopic(newTopic);

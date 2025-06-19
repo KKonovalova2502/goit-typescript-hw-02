@@ -1,12 +1,13 @@
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import style from './SearchBar.module.css';
+import { FormEvent } from 'react';
 
 const notify = () =>
   toast.error("C'mon, don't be shy. Tell us what you're looking for!");
 
 const SearchBar = ({ onSubmit }) => {
-  const handleSubmit = (evt) => {
+  const handleSubmit = (evt:FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     const form = evt.target;
     const topic = form.elements.topic.value.trim();
