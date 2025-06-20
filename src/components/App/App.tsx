@@ -8,12 +8,9 @@ import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ImageModal from '../ImageModal/ImageModal';
 import { Toaster } from 'react-hot-toast';
 import './App.css';
+import { Image } from './App.types';
 
-interface Image {
-  query: string;
-  page: number;
-  per_page: number;
-}
+
 
 export default function App() {
   const [images, setImages] = useState<Image[]>([]);
@@ -22,16 +19,16 @@ export default function App() {
   const [topic, setTopic] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(0);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<Image | null>(null);
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
-  const handleSubmit = async (newTopic) => {
+  const handleSubmit = async (newTopic: string) => {
     setTopic(newTopic);
     setCurrentPage(1);
     setImages([]);
   };
 
-  const incrementPage = () => {
+  const incrementPage = (): void => {
     setCurrentPage(currentPage + 1);
   };
 
@@ -57,12 +54,12 @@ export default function App() {
     fetchData();
   }, [currentPage, topic]);
 
-  const openModal = (image) => {
+  const openModal = (image: Image): void => {
     setSelectedImage(image);
     setIsOpenModal(true);
   };
 
-  const closeModal = () => {
+  const closeModal = (): void => {
     setSelectedImage(null);
     setIsOpenModal(false);
   };

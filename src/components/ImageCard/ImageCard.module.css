@@ -15,11 +15,11 @@
   flex-direction: column;
   text-align: center;
   gap: 4px;
+  justify-content: flex-start;
 
-  margin-top: auto;
   padding: 8px 20px;
   background-color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.33333;
   letter-spacing: 0.04em;
   color: #2e2f42;

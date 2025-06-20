@@ -1,6 +1,13 @@
+import { FC } from 'react';
+import { Image } from '../App/App.types';
 import style from './ImageCard.module.css';
 
-const ImageCard = ({ item, onImageClick }) => {
+interface ImageCardProps {
+  item: Image;
+  onImageClick: (item: Image) => void;
+}
+
+const ImageCard: FC<ImageCardProps> = ({ item, onImageClick } ) => {
   const {
     created_at,
     urls: { small },

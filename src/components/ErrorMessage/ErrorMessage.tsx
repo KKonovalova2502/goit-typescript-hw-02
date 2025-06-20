@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import style from './ErrorMessage.module.css';
 
-const ErrorMessage = () => {
+const ErrorMessage:FC = () => {
   return (
     <div className={style.errorContainer}>
       <img

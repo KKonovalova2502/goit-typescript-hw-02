@@ -1,6 +1,11 @@
+import { FC } from 'react';
 import style from './LoadMoreBtn.module.css';
 
-const LoadMoreBtn = ({ incrementPage }) => {
+interface LoadMoreBtnProps {
+  incrementPage: () => void;
+}
+
+const LoadMoreBtn: FC<LoadMoreBtnProps> = ({ incrementPage }) => {
   return (
     <>
       <button
