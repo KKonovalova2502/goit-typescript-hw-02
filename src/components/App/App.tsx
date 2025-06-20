@@ -37,7 +37,7 @@ export default function App() {
       return;
     }
 
-    async function fetchData() {
+    async function fetchData():Promise<void> {
       try {
         setError(false);
         setLoading(true);
